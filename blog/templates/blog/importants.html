@@ -1,0 +1,12 @@
+{% extends 'partial_base.html' %}
+{% block content %}
+    <h2>Важное</h2>
+    {% for post in posts %}
+        <div class="media">
+            <div class="media-body">
+                <h4 class="media-heading">{{ post.title }}</h4>
+                {{ post.content|truncatewords:10|safe }} <a href="{% url 'blog:detail' post.slug %}">Читать</a>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

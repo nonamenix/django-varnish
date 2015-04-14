@@ -1,0 +1,11 @@
+{% extends 'partial_base.html' %}
+{% block content %}
+    <h2>Категории</h2>
+    {% for category in categories %}
+        <div class="media">
+            <div class="media-body">
+                <a href="{% url 'blog:category' %}"><h4 class="media-heading">{{ category.title }}</h4></a>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

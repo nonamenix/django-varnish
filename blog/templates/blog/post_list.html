@@ -1,0 +1,22 @@
+{% extends "base.html,partial_base.html"|pjax:request %}
+
+{% block content %}
+    <div class="infinite-scroll">
+
+        {% for post in object_list %}
+            <article>
+                <h2><a href="{{ post.get_absolute_url }}">{{ post.title|title }}</a></h2>
+
+                <p>{{ post.datetime }}</p>
+
+                <p>{{ post.content|truncatewords:20|safe }}</p>
+            </article>
+        {% empty %}
+            <p>Нет постов</p>
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+            <a class="scroll-next" href="{% url 'blog:list' %}?page={{ page_obj.next_page_number }}">Next</a>
+        {% endif %}
+    </div>
+{% endblock %}

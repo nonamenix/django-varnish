@@ -1,0 +1,11 @@
+{% extends "base.html,partial_base.html"|pjax:request %}
+
+{% block content %}
+    <article>
+        <h2>{{ post.title }}</h2>
+
+        <p>{{ post.datetime }}</p>
+
+        <p>{{ post.content|safe }}</p>
+    </article>
+{% endblock %}

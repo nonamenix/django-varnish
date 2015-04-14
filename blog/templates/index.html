@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-8">
+                <h1>Last News</h1>
+                <esi:include src="{% url 'blog:list' %}"/>
+            </div>
+
+            <div class="col-md-4">
+
+                <esi:include src="{% url 'blog:importants' %}"/>
+            </div>
+        </div>
+    </div>
+{% endblock %}
